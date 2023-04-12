@@ -6,18 +6,22 @@ export default function Layout({ children }) {
       <Header />
       <main
         className="
-        mt-4 
-        flex 
-        justify-center 
+        flex
+        justify-evenly
         items-center
-        h-[520px]
-        mx-10
+        h-[540px]
         bg-slate-100
         border
         rounded-sm
         border-slate-400
         shadow-lg
         shadow-slate-400
+        py-10
+        px-5
+        my-4
+        mx-5
+        overflow-y-auto
+        max-lg:items-start
         "
       >
         {children}
