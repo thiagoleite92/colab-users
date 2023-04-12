@@ -1,5 +1,8 @@
+import HttpService from '@/service/HttpService';
 import React from 'react';
 
 export default function Usuarios() {
-    return <div>Usuarios</div>;
+  const httpService = new HttpService();
+
+  return <div>Usuarios</div>;
 }
