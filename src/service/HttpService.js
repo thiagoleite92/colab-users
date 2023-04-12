@@ -7,7 +7,7 @@ export default class HttpService {
     });
   }
 
-  get() {
+  async get() {
     return this.axios.get();
   }
 }
