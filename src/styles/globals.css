@@ -9,5 +9,5 @@ body {
 }
 
 .contact-span {
-  @apply flex justify-center items-center gap-2;
+  @apply flex justify-center items-center gap-2 whitespace-nowrap;
 }
