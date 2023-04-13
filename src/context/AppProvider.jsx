@@ -9,8 +9,6 @@ export default function AppProvider({ children }) {
 
   const { width } = useWindowSize();
 
-  console.log(width);
-
   const context = {
     isLoading,
     setIsLoading,
