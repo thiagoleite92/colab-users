@@ -1,9 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-export default function UserCards({ user }) {
-  console.log(user);
-
+export default function ModelCards({ user }) {
   const handleModal = (user) => {
     console.log(user);
   };

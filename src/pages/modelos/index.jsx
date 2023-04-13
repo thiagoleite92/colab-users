@@ -2,7 +2,7 @@ import AppContext from '@/context/AppContext';
 import HttpService from '@/service/HttpService';
 import React, { useContext, useEffect } from 'react';
 import { useQuery } from 'react-query';
-import UserCards from './UserCards';
+import ModelCards from '../components/ModelCards';
 
 const users = [
   {
@@ -422,7 +422,7 @@ export default function Usuarios() {
   return (
     <ul className="flex gap-2 flex-wrap h-fit items-center justify-center">
       {users.map((user) => {
-        return <UserCards key={user.id.value} user={user} />;
+        return <ModelCards key={user.id.value} user={user} />;
       })}
     </ul>
   );
