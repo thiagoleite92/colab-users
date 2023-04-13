@@ -59,15 +59,16 @@ export default function ModalCard() {
             height={480}
           />
           <div className="flex justify-between">
-            <button onClick={handleCloseModal}>
-              <AiFillCloseSquare
-                fontSize={28}
-                title="Fechar"
-                className="hover:text-purple-800 text-purple-600"
-              />
+            <button
+              onClick={handleCloseModal}
+              className="flex gap-2 hover:text-purple-800 text-purple-600"
+            >
+              <AiFillCloseSquare fontSize={28} title="Fechar" />
+              Fechar
             </button>
-            <button>
-              <AiOutlineStar color="#9333ea" fontSize={28} title="Favoritar" />
+            <button className="flex gap-2 hover:text-purple-800 text-purple-600">
+              Favoritar
+              <AiOutlineStar fontSize={28} title="Favoritar" />
             </button>
           </div>
         </div>
