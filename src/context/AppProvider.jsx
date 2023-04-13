@@ -6,8 +6,6 @@ export default function AppProvider({ children }) {
   const [openModal, setOpenModal] = useState(false);
   const [userModal, setUserModal] = useState({});
 
-  console.log(userModal);
-
   const context = {
     isLoading,
     setIsLoading,
