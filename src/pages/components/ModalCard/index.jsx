@@ -104,15 +104,15 @@ export default function ModalCard() {
           <div className="flex flex-col justify-center items-center gap-2">
             <strong>Contatos</strong>
             <div className="flex gap-5">
-              <span className="flex justify-center items-center gap-2">
+              <span className="contact-span">
                 <AiOutlineWhatsApp />
                 {cell}
               </span>
-              <span className="flex justify-center items-center gap-2">
+              <span className="contact-span">
                 <AiOutlineMail />
                 {email}
               </span>
-              <span className="flex justify-center items-center gap-2">
+              <span className="contact-span">
                 <BsFillTelephoneInboundFill />
                 {phone}
               </span>
