@@ -1,8 +1,10 @@
+import ModalCard from '@/pages/components/ModalCard';
 import { Footer, Header } from './components';
 
 export default function Layout({ children }) {
   return (
     <>
+      <ModalCard />
       <Header />
       <main
         className="
