@@ -10,15 +10,12 @@ import {
 } from "react-icons/ai";
 import { BsFillTelephoneInboundFill } from "react-icons/bs";
 import ToggleLikeButton from "../ToggleLikeButton";
-import useWindowSize from "@/hooks/useWindowSize";
 
 export default function ModalCard() {
-  const { userModal, setUserModal, openModal, setOpenModal } =
+  const { userModal, setUserModal, openModal, setOpenModal, width } =
     useContext(AppContext);
 
   const { picture, location, cell, dob, email, nat, name, phone } = userModal;
-
-  const { width } = useWindowSize();
 
   const customStyles = {
     overlay: {

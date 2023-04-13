@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import AppContext from "./AppContext";
+import useWindowSize from "@/hooks/useWindowSize";
 
 export default function AppProvider({ children }) {
   const [isLoading, setIsLoading] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [userModal, setUserModal] = useState({});
+
+  const { width } = useWindowSize();
+
+  console.log(width);
 
   const context = {
     isLoading,
@@ -13,6 +18,7 @@ export default function AppProvider({ children }) {
     setOpenModal,
     userModal,
     setUserModal,
+    width,
   };
 
   return <AppContext.Provider value={context}>{children}</AppContext.Provider>;
