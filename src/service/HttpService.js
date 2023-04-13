@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 export default class HttpService {
   constructor() {
@@ -11,6 +11,8 @@ export default class HttpService {
     try {
       const { data } = await this.axios.get();
       return data;
-    } catch (error) {}
+    } catch (error) {
+      return;
+    }
   }
 }

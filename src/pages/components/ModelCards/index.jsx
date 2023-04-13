@@ -17,7 +17,7 @@ export default function ModelCards({ user }) {
     shadow-slate-400 flex gap-2 w-48 h-64 items-center"
       >
         <Image
-          src={user.picture.large}
+          src={user?.picture?.large}
           alt={`${user.name.first} ${user.name.last}`}
           width="100"
           height="100"

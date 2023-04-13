@@ -7,9 +7,9 @@ import {
   AiOutlineWhatsApp,
   AiOutlineMail,
   AiFillCloseSquare,
-  AiOutlineStar,
 } from "react-icons/ai";
 import { BsFillTelephoneInboundFill } from "react-icons/bs";
+import ToggleLikeButton from "../ToggleLikeButton";
 
 export default function ModalCard() {
   const { userModal, setUserModal, openModal, setOpenModal } =
@@ -50,11 +50,11 @@ export default function ModalCard() {
       style={customStyles}
       contentLabel="Example Modal"
     >
-      <section className="flex gap-5">
+      <section className="flex max-lg:flex-col gap-5">
         <div className="flex flex-col gap-2">
           <Image
-            src={picture?.large}
-            alt={`${name?.first} ${name?.last}`}
+            src={picture ? picture?.large : "/assets/images/notFoundUser.jpg"}
+            alt="foto"
             width={540}
             height={480}
           />
@@ -66,10 +66,7 @@ export default function ModalCard() {
               <AiFillCloseSquare fontSize={28} title="Fechar" />
               Fechar
             </button>
-            <button className="flex gap-2 hover:text-purple-800 text-purple-600">
-              Favoritar
-              <AiOutlineStar fontSize={28} title="Favoritar" />
-            </button>
+            <ToggleLikeButton userModal={userModal} />
           </div>
         </div>
         <div
@@ -95,14 +92,14 @@ export default function ModalCard() {
             </span>
           </div>
           <strong>Trabalhos realizados:</strong>
-          <p className="break-words">
+          <p className="text-justify">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis
             qui repellendus obcaecati molestias assumenda, nobis natus officia
             illo sit iure facere maxime alias provident modi quaerat nisi minus
             beatae? Non?
           </p>
           <div className="flex flex-col justify-center items-center gap-2">
-            <strong>Contatos</strong>
+            <strong>Entre em contato</strong>
             <div className="flex gap-5">
               <span className="contact-span">
                 <AiOutlineWhatsApp />
