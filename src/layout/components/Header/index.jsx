@@ -21,7 +21,7 @@ export default function Header() {
          text-purple-600"
     >
       <div
-        onClick={() => push('/usuarios')}
+        onClick={() => push('/modelos')}
         className="
 					flex flex-col 
 					justify-center 
@@ -34,7 +34,7 @@ export default function Header() {
       </div>
       <div
         onClick={() =>
-          push(pathname === '/usuarios' ? '/favoritos' : '/usuarios')
+          push(pathname === '/modelos' ? '/favoritos' : '/modelos')
         }
         className="
 					flex flex-col 
@@ -43,7 +43,7 @@ export default function Header() {
 					hover:text-purple-800 
 					cursor-pointer"
       >
-        {pathname === '/usuarios' && (
+        {pathname === '/modelos' && (
           <>
             <BsFillBookmarkStarFill fontSize={20} />
             <span>Favoritos</span>

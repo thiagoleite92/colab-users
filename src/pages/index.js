@@ -5,7 +5,7 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    router.replace('/usuarios');
+    router.replace('/modelos');
   });
 
   return null;
