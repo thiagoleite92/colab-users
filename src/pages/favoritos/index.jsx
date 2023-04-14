@@ -6,8 +6,6 @@ import FavoritesNotFound from "../components/FavoritesNotFound";
 export default function Favorites() {
   const { saved } = useContext(AppContext);
 
-  console.log(saved);
-
   return (
     <>
       <ul className="flex gap-2 flex-wrap h-fit items-center justify-center">

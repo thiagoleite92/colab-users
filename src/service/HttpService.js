@@ -9,8 +9,6 @@ export default class HttpService {
 
   async get(url = "results=14") {
     try {
-      console.log(url);
-
       const { data } = await this.axios({
         method: "GET",
         url: "?" + url,
