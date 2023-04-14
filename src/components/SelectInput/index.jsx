@@ -7,6 +7,7 @@ export default function SelectInput({
   onChange,
   placeHolder,
   menuPos = "top",
+  name,
 }) {
   return (
     <label className="flex justify-center items-center gap-2  text-purple-600 px-2">
@@ -15,7 +16,8 @@ export default function SelectInput({
         options={options}
         menuPlacement={menuPos}
         placeholder={placeHolder}
-        onChange={onChange}
+        onChange={(e, name) => onChange(e, name)}
+        name={name}
       />
     </label>
   );

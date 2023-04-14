@@ -12,7 +12,7 @@ export default function Layout({ children }) {
         className="
         flex
         justify-center
-        items-center
+        items-start
         h-[560px]
         bg-slate-100
         border
@@ -26,7 +26,6 @@ export default function Layout({ children }) {
         overflow-y-auto
         max-sm:px-0
         max-sm:py-2
-        max-lg:items-start
         "
       >
         {children}
