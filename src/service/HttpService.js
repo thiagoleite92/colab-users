@@ -3,7 +3,7 @@ import axios from "axios";
 export default class HttpService {
   constructor() {
     this.axios = axios.create({
-      baseURL: `https://randomuser.me/api/?nat=br&results=10`,
+      baseURL: `https://randomuser.me/api/?nat=br&results=14`,
     });
   }
 

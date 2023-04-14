@@ -1,7 +1,7 @@
-import AppProvider from '@/context/AppProvider';
-import Layout from '@/layout';
-import '@/styles/globals.css';
-import { QueryClient, QueryClientProvider } from 'react-query';
+import AppProvider from "@/context/AppProvider";
+import Layout from "@/layout";
+import "@/styles/globals.css";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 export default function App({ Component, pageProps }) {
   const queryClient = new QueryClient({
@@ -13,12 +13,12 @@ export default function App({ Component, pageProps }) {
   });
 
   return (
-    <AppProvider>
-      <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient}>
+      <AppProvider>
         <Layout>
           <Component {...pageProps} />
         </Layout>
-      </QueryClientProvider>
-    </AppProvider>
+      </AppProvider>
+    </QueryClientProvider>
   );
 }
