@@ -1,36 +1,61 @@
-import React from 'react';
+import { useQueryClient } from "react-query";
+import React, { useState } from "react";
 
-export default function Footer() {
+export default function ModelsFilter() {
+  const queryClient = useQueryClient();
+
+  const [filterGender, setFilterGender] = useState("Male");
+
+  console.log(filterGender);
+
+  const handleFilter = (e) => {
+    e.preventDefault();
+    queryClient.invalidateQueries("fetchModels");
+  };
+
   return (
     <footer
       className="
-        fixed bottom-0 
-        w-full
-        h-12"
-    >
-      <nav
-        className="
-        bg-slate-100 
+      bg-slate-100 
         border-t-2
         border-slate-400
-        py-2
-        px-10"
-      >
-        <ul
-          className="
-        w-100
-        flex 
-        justify-start 
-        gap-8
-        child-hover:text-purple-800 
-        child:text-purple-600 
-        child-hover:cursor-pointer"
+        py-5
+        px-10
+        flex
+        justify-start
+        items-center
+
+        "
+    >
+      <form className="flex gap-5 justify-start items-center">
+        <label
+          className="flex justify-center items-center gap-2"
+          onChange={(e) => setFilterGender(e.target.value)}
+          htmlFor="gender"
         >
-          <li>Contato</li>
-          <li>Todos os Direitos Reservados</li>
-          <li>Sobre</li>
-        </ul>
-      </nav>
+          <input
+            type="checkbox"
+            value="Homens"
+            name="gender"
+            className="mr-3 h-5 w-5 cursor-pointer accent-purple-600 hover:accent-purple-800"
+          />{" "}
+          Homens
+          <input
+            type="checkbox"
+            value="Mulheres"
+            name="gender"
+            className="mr-3 h-5 w-5 cursor-pointer accent-purple-600 hover:accent-purple-800"
+          />{" "}
+          Mulheres
+        </label>
+        <button
+          type="button"
+          onClick={(e) => handleFilter(e)}
+          className="bg-purple-600 hover:bg-purple-800 py-1 px-6 rounded-md text-white text-bold"
+        >
+          Buscar Modelos
+        </button>
+      </form>
     </footer>
   );
 }

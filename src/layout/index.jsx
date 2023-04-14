@@ -1,11 +1,8 @@
 import ModalCard from "@/pages/components/ModalCard";
 import { Footer, Header } from "./components";
 import Loading from "@/components/Loading";
-import { useQueryClient } from "react-query";
 
 export default function Layout({ children }) {
-  const queryClient = useQueryClient();
-
   return (
     <>
       <Loading />
@@ -14,9 +11,9 @@ export default function Layout({ children }) {
       <main
         className="
         flex
-        justify-between
+        justify-center
         items-center
-        h-[560px]
+        h-[540px]
         bg-slate-100
         border
         rounded-sm
@@ -30,13 +27,9 @@ export default function Layout({ children }) {
         max-lg:items-start
         max-sm:px-0
         max-sm:py-2
-        gap-5
         "
       >
         {children}
-        <button onClick={() => queryClient.invalidateQueries("fetchModels")}>
-          Buscar Modelos
-        </button>
       </main>
       <Footer />
     </>
