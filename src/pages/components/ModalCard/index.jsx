@@ -11,6 +11,8 @@ import {
 import { BsFillTelephoneInboundFill } from "react-icons/bs";
 import ToggleLikeButton from "../ToggleLikeButton";
 
+import * as moment from "moment";
+
 export default function ModalCard() {
   const { userModal, setUserModal, openModal, setOpenModal, width } =
     useContext(AppContext);
@@ -79,7 +81,8 @@ export default function ModalCard() {
             <strong>Nome:</strong> {`${name?.first} ${name?.last}`}
           </span>
           <span>
-            <strong>Data de Nascimento:</strong> {dob?.date} - {dob?.age} anos
+            <strong>Data de Nascimento:</strong>{" "}
+            {moment(dob?.date).format("DD/MM/yyyy")} - {dob?.age} anos
           </span>
           <div className="flex gap-4 max-md:flex-col">
             <span>
