@@ -13,7 +13,9 @@ export default function Favorites() {
       <ul className="flex gap-2 flex-wrap h-fit items-center justify-center">
         {saved?.length ? (
           saved?.map((user) => {
-            return <ModelCards key={user.id.value} user={user} />;
+            return (
+              <ModelCards key={user.id.value || Math.random()} user={user} />
+            );
           })
         ) : (
           <FavoritesNotFound />

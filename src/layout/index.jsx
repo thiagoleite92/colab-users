@@ -13,7 +13,7 @@ export default function Layout({ children }) {
         flex
         justify-center
         items-center
-        h-[540px]
+        h-[560px]
         bg-slate-100
         border
         rounded-sm
@@ -21,12 +21,12 @@ export default function Layout({ children }) {
         shadow-lg
         shadow-slate-400
         px-5
-        py-2
+        py-4
         my-4
         overflow-y-auto
-        max-lg:items-start
         max-sm:px-0
         max-sm:py-2
+        max-lg:items-start
         "
       >
         {children}

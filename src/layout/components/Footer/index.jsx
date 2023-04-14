@@ -1,16 +1,49 @@
-import { useQueryClient } from "react-query";
-import React, { useState } from "react";
+import SelectInput from "@/components/SelectInput";
+import AppContext from "@/context/AppContext";
+import React, { useCallback, useContext, useState } from "react";
+
+const genderOptions = [
+  { label: "Todos", value: "" },
+  { label: "Homens", value: "male" },
+  { label: "Mulheres", value: "female" },
+];
+
+const natOptions = [
+  { label: "Todos", value: "" },
+  { label: "Brasil", value: "br" },
+  { label: "Estados Unidos", value: "us" },
+  { label: "França", value: "fr" },
+  { label: "Turquia", value: "tr" },
+];
 
 export default function ModelsFilter() {
-  const queryClient = useQueryClient();
+  const { newQuery } = useContext(AppContext);
 
-  const [filterGender, setFilterGender] = useState("Male");
+  const [genderSearch, setGenderSearch] = useState();
 
-  console.log(filterGender);
+  const [natSearch, setNatSearch] = useState();
 
-  const handleFilter = (e) => {
-    e.preventDefault();
-    queryClient.invalidateQueries("fetchModels");
+  const searchParams = (gender, nat) => {
+    const params = {
+      gender,
+      nat,
+    };
+
+    console.log(params);
+
+    return new URLSearchParams(params).toString();
+  };
+
+  const handleGender = ({ value }) => {
+    newQuery(searchParams(value, natSearch));
+
+    setGenderSearch(value);
+  };
+
+  const handleNat = ({ value }) => {
+    newQuery(searchParams(genderSearch, value));
+
+    setNatSearch(value);
   };
 
   return (
@@ -19,42 +52,36 @@ export default function ModelsFilter() {
       bg-slate-100 
         border-t-2
         border-slate-400
-        py-5
+        pt-1
         px-10
         flex
         justify-start
         items-center
-
         "
     >
-      <form className="flex gap-5 justify-start items-center">
-        <label
-          className="flex justify-center items-center gap-2"
-          onChange={(e) => setFilterGender(e.target.value)}
-          htmlFor="gender"
-        >
-          <input
-            type="checkbox"
-            value="Homens"
-            name="gender"
-            className="mr-3 h-5 w-5 cursor-pointer accent-purple-600 hover:accent-purple-800"
-          />{" "}
-          Homens
-          <input
-            type="checkbox"
-            value="Mulheres"
-            name="gender"
-            className="mr-3 h-5 w-5 cursor-pointer accent-purple-600 hover:accent-purple-800"
-          />{" "}
-          Mulheres
-        </label>
-        <button
+      <form className="flex gap-5 justify-start items-center max-md:flex-col">
+        <SelectInput
+          options={genderOptions}
+          menuPlacement="top"
+          placeHolder="Gênero"
+          label="Gênero"
+          onChange={handleGender}
+        />
+        <SelectInput
+          options={natOptions}
+          menuPlacement="top"
+          placeHolder="Nacionalidade"
+          label="Nacionalidade"
+          onChange={handleNat}
+        />
+
+        {/* <button
           type="button"
-          onClick={(e) => handleFilter(e)}
+          onClick={() => newQuery()}
           className="bg-purple-600 hover:bg-purple-800 py-1 px-6 rounded-md text-white text-bold"
         >
           Buscar Modelos
-        </button>
+        </button> */}
       </form>
     </footer>
   );
