@@ -1,9 +1,24 @@
-import AppContext from '@/context/AppContext';
-import React, { useContext } from 'react';
+import React, { useContext } from "react";
+import ModelCards from "../components/ModelCards";
+import AppContext from "@/context/AppContext";
+import FavoritesNotFound from "../components/FavoritesNotFound";
 
 export default function Favorites() {
-  const { isLoading } = useContext(AppContext);
+  const { saved } = useContext(AppContext);
 
-  console.log(isLoading);
-  return <div>Favorites</div>;
+  console.log(saved);
+
+  return (
+    <>
+      <ul className="flex gap-2 flex-wrap h-fit items-center justify-center">
+        {saved?.length ? (
+          saved?.map((user) => {
+            return <ModelCards key={user.id.value} user={user} />;
+          })
+        ) : (
+          <FavoritesNotFound />
+        )}
+      </ul>
+    </>
+  );
 }
