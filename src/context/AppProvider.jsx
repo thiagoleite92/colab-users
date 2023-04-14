@@ -6,6 +6,9 @@ import HttpService from "@/service/HttpService";
 import FavoriteService from "@/service/FavoriteService";
 
 export default function AppProvider({ children }) {
+  const httpService = new HttpService();
+  const favoriteService = useMemo(() => new FavoriteService(), []);
+
   const [isLoading, setIsLoading] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [userModal, setUserModal] = useState({});
@@ -14,16 +17,11 @@ export default function AppProvider({ children }) {
 
   const { width } = useWindowSize();
 
-  const httpService = new HttpService();
-  const favoriteService = useMemo(() => new FavoriteService(), []);
-
   const { data, isLoading: isLoaded } = useQuery(["fetchModels"], () =>
     httpService.get()
   );
 
   const { mutate: newQuery } = useMutation(async (url) => {
-    console.log(url);
-
     try {
       setIsLoading(true);
       const teste = await httpService.get(url);

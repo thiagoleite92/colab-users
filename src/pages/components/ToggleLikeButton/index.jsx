@@ -4,11 +4,17 @@ import React, { useContext, useEffect, useMemo, useState } from "react";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 
 export default function ToggleLikeButton({ userModal }) {
-  const { setSaved } = useContext(AppContext);
-
   const favoriteService = useMemo(() => new FavoriteService(), []);
 
+  const { setSaved } = useContext(AppContext);
+
   const [isLiked, setIsLiked] = useState(false);
+
+  const handleToggle = () => {
+    favoriteService.toggleFavorito(userModal);
+    setSaved(favoriteService.favoritos());
+    setIsLiked(!isLiked);
+  };
 
   useEffect(() => {
     const favoritos = favoriteService.favoritos();
@@ -17,12 +23,6 @@ export default function ToggleLikeButton({ userModal }) {
       favoritos.some((fav) => fav?.id?.value === userModal?.id?.value)
     );
   }, [favoriteService, userModal?.id?.value]);
-
-  const handleToggle = () => {
-    favoriteService.toggleFavorito(userModal);
-    setSaved(favoriteService.favoritos());
-    setIsLiked(!isLiked);
-  };
 
   return (
     <button

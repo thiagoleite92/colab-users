@@ -36,14 +36,14 @@ export default function ModalCard() {
     },
   };
 
-  useEffect(() => {
-    Modal.setAppElement("body");
-  }, []);
-
   const handleCloseModal = () => {
     setUserModal({});
     setOpenModal(false);
   };
+
+  useEffect(() => {
+    Modal.setAppElement("body");
+  }, []);
 
   return (
     <Modal
