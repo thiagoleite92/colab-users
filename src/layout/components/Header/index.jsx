@@ -1,7 +1,7 @@
-import React from 'react';
-import { TbStars } from 'react-icons/tb';
-import { BsFillBookmarkStarFill, BsArrowLeft } from 'react-icons/bs';
-import { useRouter } from 'next/router';
+import React from "react";
+import { TbStars } from "react-icons/tb";
+import { BsFillBookmarkStarFill, BsArrowLeft } from "react-icons/bs";
+import { useRouter } from "next/router";
 
 export default function Header() {
   const { push, pathname } = useRouter();
@@ -21,7 +21,7 @@ export default function Header() {
          text-purple-600"
     >
       <div
-        onClick={() => push('/modelos')}
+        onClick={() => push("/modelos")}
         className="
 					flex flex-col 
 					justify-center 
@@ -30,11 +30,11 @@ export default function Header() {
 					cursor-pointer"
       >
         <TbStars fontSize={36} />
-        New Agency - Models
+        New Models
       </div>
       <div
         onClick={() =>
-          push(pathname === '/modelos' ? '/favoritos' : '/modelos')
+          push(pathname === "/modelos" ? "/favoritos" : "/modelos")
         }
         className="
 					flex flex-col 
@@ -43,13 +43,13 @@ export default function Header() {
 					hover:text-purple-800 
 					cursor-pointer"
       >
-        {pathname === '/modelos' && (
+        {pathname === "/modelos" && (
           <>
             <BsFillBookmarkStarFill fontSize={20} />
             <span>Favoritos</span>
           </>
         )}
-        {pathname === '/favoritos' && (
+        {pathname === "/favoritos" && (
           <span>
             <BsArrowLeft />
             Voltar
