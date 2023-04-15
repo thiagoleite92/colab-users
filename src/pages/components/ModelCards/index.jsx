@@ -18,7 +18,7 @@ export default function ModelCards({ user }) {
       >
         <Image
           src={user?.picture?.large}
-          alt={`${user.name.first} ${user.name.last}`}
+          alt={`${user?.name?.first} ${user?.name?.last}`}
           width="100"
           height="100"
           priority
