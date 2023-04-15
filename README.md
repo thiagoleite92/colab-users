@@ -21,6 +21,9 @@ Este é um projeto desenvolvido utilizando Next.js, React Query e TailwindCSS.
 3. Inicie o servidor local: `npm run dev`
 4. Acesse o projeto no navegador em `http://localhost:3000`
 
+## Deploy 🔗 ✅
+https://colab-users.vercel.app/modelos
+
 ## Licença
 
 Este projeto está licenciado sob a Licença MIT. Consulte o arquivo LICENSE para obter mais informações.
