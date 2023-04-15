@@ -26,11 +26,11 @@ export default function ModelCards({ user }) {
         <div className="flex flex-col text-xs">
           <span>
             <strong>Nome: </strong>
-            {`${user.name.first} ${user.name.last}`}
+            {`${user?.name?.first} ${user?.name?.last}`}
           </span>
           <div className="flex-col flex gap-6 mt-2">
             <span>
-              <strong>Idade:</strong> {user.dob.age}
+              <strong>Idade:</strong> {user?.dob?.age}
             </span>
             <button
               className="bg-purple-600 hover:bg-purple-800 rounded py-4 px-4 font-bold text-white"
