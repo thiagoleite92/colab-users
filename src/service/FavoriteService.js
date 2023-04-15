@@ -16,6 +16,6 @@ export default class FavoriteService {
   }
 
   favoritos() {
-    return JSON.parse(localStorage.getItem("favoritos") || []);
+    return JSON.parse(localStorage.getItem("favoritos")) ?? [];
   }
 }
